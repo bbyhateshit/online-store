@@ -53,5 +53,28 @@ public class InventoryService {
 
         return results;
     }
+    public List<Product> searchByDepartment(String department) {
+        List<Product> results = new ArrayList<>();
+
+        for (Product p : products) {
+            if (p.getDepartment().equalsIgnoreCase(department)) {
+                results.add(p);
+            }
+        }
+
+        return results;
+    }
+    public List<Product> searchByPrice(double price) {
+        List<Product> results = new ArrayList<>();
+
+        for (Product p : products) {
+            if (p.getPrice() == price) {
+                results.add(p);
+            }
+        }
+
+        return results;
+    }
+
 }
 
