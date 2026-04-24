@@ -78,4 +78,44 @@ public class StoreUI {
             }
         }
     }
+
+    private void searchProducts() {
+        System.out.println("\nSearch by:");
+        System.out.println("1. Name");
+        System.out.println("2. Department");
+        System.out.println("3. Price");
+        System.out.print("Choose: ");
+
+        String choice = scanner.nextLine();
+
+        List<Product> results = null;
+
+        switch (choice) {
+            case "1":
+                System.out.print("Enter name: ");
+                results = inventory.searchByName(scanner.nextLine());
+                break;
+            case "2":
+                System.out.print("Enter department: ");
+                results = inventory.searchByDepartment(scanner.nextLine());
+                break;
+            case "3":
+                System.out.print("Enter price: ");
+                double price = Double.parseDouble(scanner.nextLine());
+                results = inventory.searchByPrice(price);
+                break;
+            default:
+                System.out.println("Invalid search option.");
+                return;
+        }
+
+        System.out.println("\n=== SEARCH RESULTS ===");
+        if (results.isEmpty()) {
+            System.out.println("No products found.");
+        } else {
+            for (Product p : results) {
+                System.out.println(p);
+            }
+        }
+    }
 }
