@@ -27,7 +27,9 @@ public class InventoryService {
             }
 
 
+        } catch (Exception e) {
+            System.out.println("Error loading products: " + e.getMessage());
         }
-    }
 
+    }
 }
