@@ -15,6 +15,15 @@ public class InventoryService {
                 String line = scanner.nextLine();
                 // Skip empty lines
                 if (line.trim().isEmpty()) continue;
+
+                String[] parts = line.split("\\|");
+
+                String sku = parts[0];
+                String name = parts[1];
+                double price = Double.parseDouble(parts[2]);
+                String department = parts[3];
+
+                products.add(new Product(sku, name, price, department));
             }
 
 
