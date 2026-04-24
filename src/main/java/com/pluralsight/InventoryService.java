@@ -9,13 +9,16 @@ public class InventoryService {
     private List<Product> products = new ArrayList<>();
 
     public void loadProducts(String filePath) {
-        try (Scanner scanner = new Scanner(new File("src/main/resources/products.csv"))){
+        try (Scanner scanner = new Scanner(new File("src/main/resources/products.csv"))) {
 
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
+                // Skip empty lines
+                if (line.trim().isEmpty()) continue;
+            }
+
+
         }
-
-
-
     }
+
 }
