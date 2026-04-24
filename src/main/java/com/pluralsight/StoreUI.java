@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class StoreUI {
@@ -131,6 +132,48 @@ public class StoreUI {
             System.out.println(selected.getName() + " added to cart.");
         } else {
             System.out.println("Invalid product number.");
+        }
+    }
+
+    // CART SCREEN
+    private void displayCartScreen() {
+        boolean inCart = true;
+
+        while (inCart) {
+            System.out.println("\n=== YOUR CART ===");
+
+            Map<Product, Integer> items = cart.getItems();
+
+            if (items.isEmpty()) {
+                System.out.println("Your cart is empty.");
+            } else {
+                for (Map.Entry<Product, Integer> entry : items.entrySet()) {
+                    System.out.println(entry.getKey().getName() + " x " + entry.getValue());
+                }
+                System.out.printf("Total: $%.2f%n", cart.getTotal());
+            }
+
+            System.out.println("\nOptions:");
+            System.out.println("R - Remove Product");
+            System.out.println("C - Checkout");
+            System.out.println("B - Back to Home");
+            System.out.print("Choose an option: ");
+
+            String choice = scanner.nextLine().trim().toUpperCase();
+
+            switch (choice) {
+                case "R":
+                    removeProductFromCart();
+                    break;
+                case "C":
+                    checkout();
+                    break;
+                case "B":
+                    inCart = false;
+                    break;
+                default:
+                    System.out.println("Invalid option.");
+            }
         }
     }
 }
