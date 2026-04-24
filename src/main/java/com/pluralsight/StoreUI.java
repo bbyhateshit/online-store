@@ -176,4 +176,25 @@ public class StoreUI {
             }
         }
     }
+
+    private void removeProductFromCart() {
+        System.out.print("Enter product name to remove: ");
+        String name = scanner.nextLine();
+
+        Product toRemove = null;
+
+        for (Product p : cart.getItems().keySet()) {
+            if (p.getName().equalsIgnoreCase(name)) {
+                toRemove = p;
+                break;
+            }
+        }
+
+        if (toRemove != null) {
+            cart.remove(toRemove);
+            System.out.println("Removed one unit of " + toRemove.getName());
+        } else {
+            System.out.println("Product not found in cart.");
+        }
+    }
 }
