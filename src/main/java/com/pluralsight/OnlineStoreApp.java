@@ -6,5 +6,10 @@ public class OnlineStoreApp {
         InventoryService inventory = new InventoryService();
         inventory.loadProducts("src/main/resources/products.csv");
 
+
+        System.out.println("Products Loaded:");
+        for (Product product : inventory.getAllProducts()) {
+            System.out.println(product);
+        }
     }
 }

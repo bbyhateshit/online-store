@@ -12,6 +12,10 @@ public class InventoryService {
     public void loadProducts(String filePath) {
         try (Scanner scanner = new Scanner(new File("src/main/resources/products.csv"))) {
 
+            if (scanner.hasNextLine()) {
+                scanner.nextLine();
+            }
+
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 // Skip empty lines
