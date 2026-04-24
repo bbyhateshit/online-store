@@ -197,4 +197,11 @@ public class StoreUI {
             System.out.println("Product not found in cart.");
         }
     }
+    private void checkout() {
+        System.out.println("\n=== CHECKOUT ===");
+        System.out.printf("Your total is: $%.2f%n", cart.getTotal());
+        System.out.println("Thank you for your purchase!");
+
+        cart.clear();
+    }
 }
