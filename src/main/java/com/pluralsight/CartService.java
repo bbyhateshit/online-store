@@ -22,8 +22,20 @@ public class CartService {
             }
         }
     }
-    // Get all cart items
+// Get all cart items
     public Map<Product, Integer> getItems() {
         return cart;
+    }
+// Calculate total price
+    public double getTotal() {
+        double total = 0;
+
+        for (Map.Entry<Product, Integer> entry : cart.entrySet()) {
+            Product p = entry.getKey();
+            int qty = entry.getValue();
+            total += p.getPrice() * qty;
+        }
+
+        return total;
     }
 }
