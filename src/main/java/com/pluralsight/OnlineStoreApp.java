@@ -11,5 +11,7 @@ public class OnlineStoreApp {
         for (Product product : inventory.getAllProducts()) {
             System.out.println(product);
         }
+
     }
+
 }
