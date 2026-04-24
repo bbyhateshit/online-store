@@ -118,4 +118,19 @@ public class StoreUI {
             }
         }
     }
+
+    private void addProductToCart() {
+        System.out.print("Enter product number to add: ");
+        int index = Integer.parseInt(scanner.nextLine()) - 1;
+
+        List<Product> products = inventory.getAllProducts();
+
+        if (index >= 0 && index < products.size()) {
+            Product selected = products.get(index);
+            cart.add(selected);
+            System.out.println(selected.getName() + " added to cart.");
+        } else {
+            System.out.println("Invalid product number.");
+        }
+    }
 }
