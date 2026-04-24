@@ -22,4 +22,8 @@ public class CartService {
             }
         }
     }
+    // Get all cart items
+    public Map<Product, Integer> getItems() {
+        return cart;
+    }
 }
