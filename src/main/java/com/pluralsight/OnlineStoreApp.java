@@ -7,11 +7,9 @@ public class OnlineStoreApp {
         inventory.loadProducts("src/main/resources/products.csv");
 
 
-        System.out.println("Products Loaded:");
-        for (Product product : inventory.getAllProducts()) {
-            System.out.println(product);
-        }
+        CartService cart = new CartService();
 
+        StoreUI ui = new StoreUI(inventory, cart);
+        ui.start();
     }
-
 }
