@@ -6,12 +6,12 @@ public class Product {
     private double price;
     private String department;
 
-public Product(String sku, String name, double price, String department){
-    this.sku = sku;
-    this.name =name;
-    this.price = price;
-    this.department = department;
-}
+    public Product(String sku, String name, double price, String department) {
+        this.sku = sku;
+        this.name = name;
+        this.price = price;
+        this.department = department;
+    }
 
     public String getSku() {
         return sku;
@@ -27,5 +27,11 @@ public Product(String sku, String name, double price, String department){
 
     public String getDepartment() {
         return department;
+    }
+
+// Overrides format - to string since there's one double
+    public String toString() {
+        return String.format("%s | %s | $%.2f | %s",
+                sku, name, price, department);
     }
 }
