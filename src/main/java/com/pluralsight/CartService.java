@@ -38,4 +38,8 @@ public class CartService {
 
         return total;
     }
+// Clear cart after checkout
+    public void clear() {
+        cart.clear();
+    }
 }
