@@ -32,4 +32,8 @@ public class InventoryService {
         }
 
     }
+
+        public List<Product> getAllProducts() {
+        return products;
+    }
 }
