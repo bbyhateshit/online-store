@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 import com.pluralsight.Product;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,4 +42,16 @@ public class InventoryService {
         public List<Product> getAllProducts() {
         return products;
     }
+    public List<Product> searchByName(String name) {
+        List<Product> results = new ArrayList<>();
+
+        for (Product p : products) {
+            if (p.getName().toLowerCase().contains(name.toLowerCase())) {
+                results.add(p);
+            }
+        }
+
+        return results;
+    }
 }
+
